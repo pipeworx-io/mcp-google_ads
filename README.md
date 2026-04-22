@@ -2,21 +2,21 @@
 
 Google Ads MCP Pack
 
-Part of the [Pipeworx](https://pipeworx.io) open MCP gateway.
+Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 250+ live data sources.
 
 ## Tools
 
 | Tool | Description |
 |------|-------------|
-| `gads_list_campaigns` | List all campaigns in a Google Ads account. Returns campaign names, IDs, statuses, budgets, and types. |
-| `gads_get_campaign` | Get detailed information about a specific Google Ads campaign by ID. Returns name, status, budget, bidding strategy, and settings. |
-| `gads_campaign_metrics` | Get performance metrics for campaigns in a Google Ads account. Returns impressions, clicks, cost, conversions, CTR, and CPC for a given date range. |
-| `gads_list_ad_groups` | List ad groups for a specific campaign. Returns ad group names, IDs, statuses, and CPC bid. |
-| `gads_search` | Execute a custom GAQL (Google Ads Query Language) query. Use this for advanced queries not covered by other tools. See https://developers.google.com/google-ads/api/docs/query/overview for GAQL syntax. |
+| `gads_list_campaigns` | List all campaigns in your Google Ads account. Returns campaign names, IDs, statuses, budgets, and types. Use to overview account structure or find a campaign ID for detailed analysis. |
+| `gads_get_campaign` | Get detailed settings for a specific campaign. Returns name, status, budget, bidding strategy, and configuration. Use to review or audit a campaign\'s current setup. |
+| `gads_campaign_metrics` | Get performance metrics for campaigns over a date range. Returns impressions, clicks, cost, conversions, CTR, and CPC. Use to analyze campaign effectiveness or compare performance trends. |
+| `gads_list_ad_groups` | List ad groups within a campaign by campaign ID. Returns ad group names, IDs, statuses, and CPC bids. Use to explore campaign structure or select an ad group for analysis. |
+| `gads_search` | Run custom GAQL queries against Google Ads data. Use for advanced analysis—filter by keywords, matching types, or aggregate metrics by custom dimensions. |
 
 ## Quick Start
 
-Add to your MCP client config:
+Add to your MCP client (Claude Desktop, Cursor, Windsurf, etc.):
 
 ```json
 {
@@ -28,11 +28,32 @@ Add to your MCP client config:
 }
 ```
 
-Or use the CLI:
+Or connect to the full Pipeworx gateway for access to all 250+ data sources:
 
-```bash
-npx pipeworx use google_ads
+```json
+{
+  "mcpServers": {
+    "pipeworx": {
+      "url": "https://gateway.pipeworx.io/mcp"
+    }
+  }
+}
 ```
+
+## Using with ask_pipeworx
+
+Instead of calling tools directly, you can ask questions in plain English:
+
+```
+ask_pipeworx({ question: "your question about Google_ads data" })
+```
+
+The gateway picks the right tool and fills the arguments automatically.
+
+## More
+
+- [All tools and guides](https://github.com/pipeworx-io/examples)
+- [pipeworx.io](https://pipeworx.io)
 
 ## License
 
