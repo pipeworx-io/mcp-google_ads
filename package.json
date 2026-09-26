@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-google_ads",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Google Ads MCP Pack",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-5ee58cc0c937d14fd77f93ca61eb0a988dec350da2a09a2b919cd111177f5581",
-    "sourceCommit": "76aa8f5d9b5dc2f665563030647c68e661478864"
+    "sourceHash": "v1-b54d12c9ab48b4a00bb3e95a87feeb4e3132da1c27b626452ca9d5d51670806a",
+    "sourceCommit": "1064560fd9dcd0d6fc2606298c2ba244b3a1fbeb"
   }
 }
