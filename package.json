@@ -1,12 +1,20 @@
 {
   "name": "@pipeworx/mcp-google_ads",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Google Ads MCP Pack",
   "type": "module",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
   "bin": {
     "mcp-google_ads": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
   },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "google_ads"],
   "license": "MIT",
@@ -14,19 +22,12 @@
     "type": "git",
     "url": "git+https://github.com/pipeworx-io/mcp-google_ads.git"
   },
-  "scripts": {
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "tsx": "^4.19.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.9.3",
-    "@cloudflare/workers-types": "^4.20260405.1"
-  },
+  "mcpName": "io.github.pipeworx-io/google_ads",
   "pipeworx": {
-    "sourceHash": "v1-8fc913c8d587b72bc311d2942a598b5037e6fac4960ed8baa6f217974f8bb6c2",
-    "sourceCommit": "445bacc5596a845c12d6945fbfcdf330ef60dcc4"
+    "mode": "gateway",
+    "slug": "google_ads",
+    "gatewaySlug": "google_ads",
+    "sourceHash": "v1-e0b896d16938e7f89b66a710fb4a7485bf33902f1faff0e8174a6faafd29d428",
+    "sourceCommit": "4844029e402d6bd2fe735add8abf6d46735f8ed5"
   }
 }

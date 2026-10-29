@@ -1,0 +1,141 @@
+[
+  {
+    "name": "gads_list_campaigns",
+    "description": "List all campaigns in your Google Ads account. Returns campaign names, IDs, statuses, budgets, and types. Use to overview account structure or find a campaign ID for detailed analysis.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "customer_id": {
+          "type": "string",
+          "description": "Google Ads customer ID (e.g., \"1234567890\" or \"123-456-7890\")"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ENABLED",
+            "PAUSED",
+            "REMOVED"
+          ],
+          "description": "Filter by campaign status (optional, returns all if omitted)"
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum number of campaigns to return (default 50)"
+        }
+      },
+      "required": [
+        "customer_id"
+      ]
+    }
+  },
+  {
+    "name": "gads_get_campaign",
+    "description": "Get detailed settings for a specific campaign. Returns name, status, budget, bidding strategy, and configuration. Use to review or audit a campaign's current setup.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "customer_id": {
+          "type": "string",
+          "description": "Google Ads customer ID"
+        },
+        "campaign_id": {
+          "type": "string",
+          "description": "The campaign resource ID"
+        }
+      },
+      "required": [
+        "customer_id",
+        "campaign_id"
+      ]
+    }
+  },
+  {
+    "name": "gads_campaign_metrics",
+    "description": "Get performance metrics for campaigns over a date range. Returns impressions, clicks, cost, conversions, CTR, and CPC. Use to analyze campaign effectiveness or compare performance trends.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "customer_id": {
+          "type": "string",
+          "description": "Google Ads customer ID"
+        },
+        "campaign_id": {
+          "type": "string",
+          "description": "Campaign ID to filter (optional, returns all campaigns if omitted)"
+        },
+        "start_date": {
+          "type": "string",
+          "description": "Start date in YYYY-MM-DD format (e.g., \"2024-01-01\")"
+        },
+        "end_date": {
+          "type": "string",
+          "description": "End date in YYYY-MM-DD format (e.g., \"2024-01-31\")"
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum number of rows to return (default 50)"
+        }
+      },
+      "required": [
+        "customer_id",
+        "start_date",
+        "end_date"
+      ]
+    }
+  },
+  {
+    "name": "gads_list_ad_groups",
+    "description": "List ad groups within a campaign by campaign ID. Returns ad group names, IDs, statuses, and CPC bids. Use to explore campaign structure or select an ad group for analysis.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "customer_id": {
+          "type": "string",
+          "description": "Google Ads customer ID"
+        },
+        "campaign_id": {
+          "type": "string",
+          "description": "Campaign ID to list ad groups for"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ENABLED",
+            "PAUSED",
+            "REMOVED"
+          ],
+          "description": "Filter by ad group status (optional)"
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum number of ad groups to return (default 50)"
+        }
+      },
+      "required": [
+        "customer_id",
+        "campaign_id"
+      ]
+    }
+  },
+  {
+    "name": "gads_search",
+    "description": "Run custom GAQL queries against Google Ads data. Use for advanced analysis—filter by keywords, matching types, or aggregate metrics by custom dimensions.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "customer_id": {
+          "type": "string",
+          "description": "Google Ads customer ID"
+        },
+        "query": {
+          "type": "string",
+          "description": "GAQL query string (e.g., \"SELECT campaign.name, metrics.clicks FROM campaign WHERE segments.date DURING LAST_7_DAYS\")"
+        }
+      },
+      "required": [
+        "customer_id",
+        "query"
+      ]
+    }
+  }
+]
